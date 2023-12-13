@@ -1,0 +1,36 @@
+---
+- name: Starting br_netfilter kernel module
+  shell: modprobe br_netfilter
+
+- name: Pulling images
+  shell: kubeadm config images pull
+
+- name: Starting cluster
+  shell: kubeadm init --pod-network-cidr={{ subnet }}
+
+- name: Creating .kube folder
+  shell: mkdir -p $HOME/.kube
+
+- name: Moving kubectl binary to .kube
+  shell: cp /etc/kubernetes/admin.conf $HOME/.kube/config
+
+- name: Setting permissions to kubectl
+  shell: chown $(id -u):$(id -g) $HOME/.kube/config
+
+- name: Waiting ready ndoe
+  pause:
+    seconds: 10
+
+- name: Restarting kubelet
+  shell: systemctl restart kubelet
+
+- name: Waiting kubelet
+  pause:
+    seconds: 10
+
+- name: Installing network plugin
+  shell: kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
+
+- name: Waiting CNI pods
+  pause:
+    seconds: 15

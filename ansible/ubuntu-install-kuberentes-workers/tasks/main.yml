@@ -1,0 +1,9 @@
+---
+- name: Starting br_netfilter kernel module
+  shell: modprobe br_netfilter
+
+- name: Joining node
+  shell: kubeadm join --token {{ token }} --discovery-token-unsafe-skip-ca-verification {{ kuberentesApiIp }}:{{ kubernetesApiPort }}
+
+- name: Adding worker role to nodes
+  shell: kubectl label node worker1 node-role.kubernetes.io/worker=worker

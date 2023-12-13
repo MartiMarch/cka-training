@@ -1,0 +1,6 @@
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-basic-tools'
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-ip-forwarding'
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-disable-swap'
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-install-containerd'
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-install-kuberentes'
+ansible-playbook main.yaml -K -i workers.yml --tags 'ubuntu-install-kuberentes-workers'

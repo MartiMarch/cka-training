@@ -1,0 +1,27 @@
+---
+- name: Import kubernetes repository key
+  shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/{{ version }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
+
+- name: Adding kuberentes repository
+  shell: echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/{{ version }}/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list
+
+- name: Apt repository update
+  shell: apt -y update
+
+- name: Installing kubectl
+  apt:
+    name: kubectl
+    state: present
+
+- name: Installing kubelet
+  apt:
+    name: kubelet
+    state: present
+
+- name: Installing kubeadm
+  apt:
+    name: kubeadm
+    state: present
+
+- name: Loading kernel module br_netfilter
+  shell: modprobe br_netfilter

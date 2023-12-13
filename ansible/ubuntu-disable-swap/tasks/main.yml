@@ -1,0 +1,9 @@
+---
+- name: Swap disabled in runtime
+  shell: sysctl vm.swappiness=0
+
+- name: Swap option deleted in configuration
+  shell: sed -i '/\/swap.img/d' /etc/fstab
+
+- name: Swap memory freed
+  shell: swapoff -a
