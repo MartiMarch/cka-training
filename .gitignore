@@ -1,2 +1,4 @@
 */*.sw*
 *.sw*
+ansible/ubuntu-installkubernetes-workers/files/kubeconfig
+ansible/ubuntu-installkubernetes-workers/vars/main.yml
