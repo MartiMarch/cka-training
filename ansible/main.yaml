@@ -20,7 +20,6 @@
 # -- Playbook executiom
 # ansible-playbook -i <hosts inventory> -K main.yaml --tags "<tag 1>, <tag 2>, ..."
 # ----
-
 ---
 - hosts: server
   become: true
@@ -31,4 +30,5 @@
     - { role: ubuntu-install-containerd, tags: ['ubuntu-install-containerd'] }
     - { role: ubuntu-install-kuberentes, tags: ['ubuntu-install-kuberentes'] }
     - { role: ubuntu-start-kubernetes-cluster, tags: ['ubuntu-start-kubernetes-cluster'] }
-    - { role: ubuntu-install-kuberentes-workers, tags: ['ubuntu-install-kuberentes-workers']}
+    - { role: ubuntu-install-kuberentes-workers, tags: ['ubuntu-install-kuberentes-workers'] }
+    - { role: ubuntu-install-controller, tags: ['ubuntu-install-controller'] }

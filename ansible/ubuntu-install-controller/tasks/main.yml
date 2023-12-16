@@ -1,0 +1,20 @@
+---
+- name: Starting br_netfilter kernel module
+  shell: modprobe br_netfilter
+
+- name: Joining node
+  shell: kubeadm join --token {{ token }} --discovery-token-unsafe-skip-ca-verification {{ kuberentesApiIp }}:{{ kubernetesApiPort }} --control-plane --certificate-key {{ certificateKey }}
+
+- name: Creating .kube folder
+  shell: mkdir -p /root/.kube
+
+- name: Sharing kubeconfig
+  copy:
+    src: kubeconfig
+    dest: /root/.kube/config
+
+- name: Setting permissions to kubectl
+  shell: chown $(id -u):$(id -g) /root/.kube/config
+
+#- name: Adding worker role to nodes
+#  shell: kubectl label node {{ ansible_hostname }} node-role.kubernetes.io/worker=worker

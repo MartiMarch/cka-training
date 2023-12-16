@@ -1,5 +1,5 @@
 ---
-- name: Import kubernetes repository key
+- name: Importing kubernetes repository key
   shell: curl -fsSL https://pkgs.k8s.io/core:/stable:/{{ version }}/deb/Release.key | gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
 - name: Adding kuberentes repository

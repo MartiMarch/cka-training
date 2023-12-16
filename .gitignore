@@ -1,4 +1,6 @@
 */*.sw*
 *.sw*
-ansible/ubuntu-installkubernetes-workers/files/kubeconfig
-ansible/ubuntu-installkubernetes-workers/vars/main.yml
+ansible/ubuntu-install-kubernetes-workers/files/kubeconfig
+ansible/ubuntu-install-kubernetes-workers/vars/main.yml
+ansible/ubuntu-install-kubernetes-control-plane/files/kubeconfig
+ansible/ubuntu-install-kubernetes-control-plane/vars/main.yml
