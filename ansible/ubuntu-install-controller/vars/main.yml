@@ -1,8 +1,0 @@
----
-# Generating new token  ->  kubeadm token create --print-join-command
-# List current tokens   ->  kubeadm token list
-token: 've6vwb.r62b7ye03v92ok0w'
-# Get certificate-ke on an active controller node -> kubeadm init phase upload-certs --upload-certs
-certificateKey: '777fc66dde100e3fc1cbac4188ba71104fe90d7049061819794f132ef706eb81'
-kuberentesApiIp: '192.168.122.124'
-kubernetesApiPort: '6443'

@@ -1,0 +1,1 @@
+kubeadm join 192.168.122.10:7443 --token <token> --discovery-token-ca-cert-hash sha256:<sha256 ca cert> --control-plane --certificate-key <certificate key>

@@ -1,3 +1,0 @@
-[server]
-#192.168.122.173 ansible_user=worker1
-192.168.122.31 ansible_user=worker2

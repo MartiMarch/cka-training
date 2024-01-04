@@ -1,6 +1,0 @@
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntu-basic-tools'
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntumain.yaml -ip-forwarding'
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntu-disable-swap'
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntumain.yaml -install-containerd'
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntumain.yaml -install-kuberentes'
-ansible-playbook main.yaml -i seeds.yml -e "ansible_user=root ansible_password=$1" --tags 'ubuntu-start-kubernetes-cluster'

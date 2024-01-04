@@ -24,11 +24,12 @@
 - hosts: server
   become: true
   roles:
+    - { role: ubuntu-install-lb, tags: ['ubuntu-install-lb'] }
     - { role: ubuntu-basic-tools, tags: ['ubuntu-basic-tools'] }
-    - { role: ubuntu-ip-forwarding, tags: ['ubuntu-ip-forwarding'] }
     - { role: ubuntu-disable-swap, tags: ['ubuntu-disable-swap'] }
+    - { role: ubuntu-ip-forwarding, tags: ['ubuntu-ip-forwarding'] }
     - { role: ubuntu-install-containerd, tags: ['ubuntu-install-containerd'] }
     - { role: ubuntu-install-kuberentes, tags: ['ubuntu-install-kuberentes'] }
     - { role: ubuntu-start-kubernetes-cluster, tags: ['ubuntu-start-kubernetes-cluster'] }
-    - { role: ubuntu-install-kuberentes-workers, tags: ['ubuntu-install-kuberentes-workers'] }
-    - { role: ubuntu-install-controller, tags: ['ubuntu-install-controller'] }
+    - { role: ubuntu-install-kuberentes-worker, tags: ['ubuntu-install-kuberentes-worker'] }
+    - { role: ubuntu-install-kubernetes-controller, tags: ['ubuntu-install-kubernetes-controller'] }

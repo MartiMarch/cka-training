@@ -6,7 +6,7 @@
   shell: kubeadm config images pull
 
 - name: Starting cluster
-  shell: kubeadm init --pod-network-cidr={{ subnet }}
+  shell: kubeadm init --pod-network-cidr={{ subnet }} --control-plane-endpoint {{ controlPlaneIp }}:{{ controlPlanePort }} --upload-certs
 
 - name: Creating .kube folder
   shell: mkdir -p $HOME/.kube
