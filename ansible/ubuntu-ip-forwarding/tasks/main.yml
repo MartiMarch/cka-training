@@ -1,0 +1,21 @@
+---
+- name: IPv4 forward enabled
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: 'net.ipv4.ip_forward=1'
+    insertbefore: EOF
+
+- name: Iptables filtering enabled
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: 'net.bridge.bridge-nf-call-iptables=1'
+    insertbefore: EOF
+
+- name: Iptables (IPv6) filtering enabled
+  lineinfile:
+    path: /etc/sysctl.conf
+    line: 'net.bridge.bridge-nf-call-ip6tables=1'
+    insertbefore: EOF
+
+- name: Reloading sysctl
+  shell: sysctl --system

@@ -1,0 +1,6 @@
+---
+# Generating new token  ->  kubeadm token create --print-join-command
+# List current tokens   ->  kubeadm token list
+token: 'qbylsf.i6q9n7z5dobaavc2'
+kuberentesApiIp: '192.168.122.124'
+kubernetesApiPort: '6443'

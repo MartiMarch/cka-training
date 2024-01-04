@@ -1,0 +1,17 @@
+---
+- name: Starting br_netfilter kernel module
+  shell: modprobe br_netfilter
+
+- name: Joining node
+  shell: kubeadm join --token {{ token }} --discovery-token-unsafe-skip-ca-verification {{ kuberentesApiIp }}:{{ kubernetesApiPort }} --certificate-key {{ certificateKey }} --control-plane
+
+- name: Creating .kube folder
+  shell: mkdir -p /root/.kube
+
+- name: Sharing kubeconfig
+  copy:
+    src: kubeconfig
+    dest: /root/.kube/config
+
+- name: Setting permissions to kubectl
+  shell: chown $(id -u):$(id -g) /root/.kube/config

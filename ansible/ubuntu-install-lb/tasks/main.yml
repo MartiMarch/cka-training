@@ -1,0 +1,26 @@
+---
+- name: Installing haproxy
+  apt:
+    name: haproxy
+    state: present
+
+- name: Installing keepalived
+  apt:
+    name: keepalived
+    state: present
+
+- name: Loading haproxy configuration
+  copy:
+    src: haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+
+- name: Loading keepalived configuration
+  copy:
+    src: keepalived.conf
+    dest: /etc/keepalived/keepalived.conf
+
+- name: Enabling HAproxy service
+  shell: systemctl enable haproxy
+
+- name: Enabling KeepAlived service
+  shell: systemctl enable keepalived
